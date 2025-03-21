@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewprot" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
+		<link rel="stylesheet" type="text/css" th:href="@{/bootstrap.min.css}">
+		<link rel="stylesheet" type="text/css" th:href="@{/style.css}">
+		<title>Hello, sbb</title>
+	</head>
+	<body>
+		<!--내비게이션 바-->
+		<nav th:replace="~{navbar :: navbarFragment}"></nav>
+		<!--기본 템블릿 안에 삽입될 내용-->
+		<th:block layout:fragment="content"></th:block>
+		<!-- Bootstrap JS-->
+		<script src="@{/bootstrap.min.js}"></script>
+		<!--자바 스크립트 (게시글 삭제)-->
+		<th:block layout:fragment="script"></th:block>
+	</body>
+</html>
+	

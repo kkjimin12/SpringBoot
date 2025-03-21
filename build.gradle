@@ -1,0 +1,42 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.4.1'
+	id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.mysite'
+version = '0.0.5-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(21)
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools' //자동으로 빌드(컴파일)
+	compileOnly 'org.projectlombok:lombok' //컴파일 단계
+	annotationProcessor 'org.projectlombok:lombok' //룸북 라이브러리 -> 어노테이션 분석 후 처리
+	runtimeOnly 'com.h2database:h2' //H2 데이터 베이스 설치를 하기 위한 코드  
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa' //JPA 라이브러리 설치
+	testImplementation 'org.junit.jupiter:junit-jupiter' //junit 설치
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'//해당 라이브러리가 테스트 실행시만 사용
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
+	implementation 'org.commonmark:commonmark:0.21.0' //마크다운 설치
+	runtimeOnly 'org.postgresql:postgresql'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
